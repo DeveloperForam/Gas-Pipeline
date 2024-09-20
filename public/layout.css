@@ -1,0 +1,42 @@
+/* Styles for layout.blade.php and index.blade.php */
+.sidebar {
+    width: 250px;
+    background-color: #f8f9fa;
+    height: 100vh;
+    padding: 10px;
+    border-right: 1px solid #dee2e7;
+    position: fixed; /* Fix sidebar to the left */
+}
+
+.nav-link {
+    color: #333;
+    font-weight: 500;
+    padding: 10px 15px;
+    display: block;
+    text-decoration: bold;
+}
+
+.nav-link:hover {
+    background-color: #e9ecef;
+    border-radius: 4px;
+}
+
+.nav-link.active {
+    background-color: #000000;
+    color: white;
+    border-radius: 4px;
+}
+
+/* Add styles for index.blade.php here */
+.table {
+    margin: 20px;
+}
+.table th, .table td {
+    text-align: center;
+}
+.badge {
+    font-size: 12px;
+}
+.btn-sm {
+    padding: 5px 10px;
+}

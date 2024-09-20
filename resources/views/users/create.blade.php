@@ -23,32 +23,32 @@
 
         <div class="form-group">
             <label for="fname">First Name</label>
-            <input type="text" name="fname" class="form-control" required value="{{ old('fname') }}">
+            <input type="text" name="fname" class="form-control" required value="{{ old('fname') }}"><br>
         </div>
 
          <div class="form-group">
             <label for="lname">Last Name</label>
-            <input type="text" name="lname" class="form-control" required value="{{ old('lname') }}">
+            <input type="text" name="lname" class="form-control" required value="{{ old('lname') }}"><br>
         </div>
 
         <div class="form-group">
             <label for="email">Email</label>
-            <input type="email" name="email" class="form-control" required value="{{ old('email') }}">
+            <input type="email" name="email" class="form-control" required value="{{ old('email') }}"><br>
         </div>
 
         <div class="form-group">
             <label for="mobileno">Mobile No</label>
-            <input type="text" name="mobileno" class="form-control" required value="{{ old('mobileno') }}">
+            <input type="text" name="mobileno" class="form-control" required value="{{ old('mobileno') }}"><br>
         </div>
 
         <div class="form-group">
             <label for="role">Role</label>
-            <input type="text" name="role" class="form-control" value="{{ old('role', $user->role) }}" required>
+            <input type="text" name="role" class="form-control" value="{{ old('role') }}" required><br>
         </div>
 
         <div class="form-group">
             <label for="password">Password</label>
-            <input type="password" name="password" class="form-control" required>
+            <input type="password" name="password" class="form-control" required><br>
         </div>
 
         <button type="submit" class="btn btn-primary">Add User</button>
