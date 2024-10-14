@@ -2,7 +2,84 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
 
-  <style>
+    {{-- <style>
+        /* Sidebar styles */
+        .sidebar {
+            width: 250px;
+            background-color: #f8f9fa;
+            height: 100vh;
+            padding: 10px;
+            border-right: 1px solid #dee2e7;
+            position: fixed; /* Fix sidebar to the left */
+        }
+
+        .nav-link {
+            color: #333;
+            font-weight: 500;
+            padding: 10px 15px;
+            display: block;
+            text-decoration: bold;
+        }
+
+        .nav-link:hover {
+            background-color: #e9ecef;
+            border-radius: 4px;
+        }
+
+        .nav-link.active {
+            background-color: #000000;
+            color: white;
+            border-radius: 4px;
+        }
+
+        /* Form styles */
+        .form-container {
+            margin-left: 270px; /* Adjust for the sidebar */
+            padding: 20px;
+            background-color: #ffffff;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            max-width: 600px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-label {
+            font-weight: 600;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .form-control:focus {
+            border-color: #80bdff;
+            outline: none;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+        }
+
+        .form-submit {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .form-submit:hover {
+            background-color: #0056b3;
+        }
+    </style> --}}
+    <style>
         /* Sidebar styles */
         .sidebar {
             width: 250px;
@@ -91,6 +168,7 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
+    <link href="{{ asset('css/app.css')}}" rel="stylesheet">
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
@@ -161,6 +239,9 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('properties.index') }}">Properties</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('algo') }}">Shortest Path</a>
                 </li>
             </ul>
         </div>

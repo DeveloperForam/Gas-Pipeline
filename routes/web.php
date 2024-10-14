@@ -13,26 +13,30 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home')->middleware('auth');
 
 //user module
 
-Route::get('/users', [UserController::class, 'index'])->name('users');
+Route::get('/users', [UserController::class, 'index'])->name('users')->middleware('auth');
 
 Route::get('/users/create', [UserController::class, 'create'])->name('users.create');
 
 Route::post('/users',[UserController::class,'store'])->name('users.store');
 
+Route::patch('users/{user}/toggleStatus', [UserController::class, 'toggleStatus'])->name('users.toggleStatus');
+
 // Property Module
 
-Route::get('/properties', [PropertyController::class, 'index'])->name('properties.index');
+Route::get('/properties', [PropertyController::class, 'index'])->name('properties.index')->middleware('auth');
 
 Route::get('/properties/create', [PropertyController::class, 'create'])->name('properties.create');
 
 Route::post('/properties', [PropertyController::class, 'store'])->name('properties.store');
 
+Route::patch('properties/{property}/toggleStatus', [UserController::class, 'toggleStatus'])->name('properties.toggleStatus');
+
 //algorithm
-Route::get('/algo', [DijkstraController::class, 'findShortestPath'])->name('algo');
+Route::get('/algo', [DijkstraController::class, 'findShortestPath'])->name('algo')->middleware('a');
 
 Route::get('/shortest-path', [DijkstraController::class, 'findShortestPath'])->name('shortest-path');
 

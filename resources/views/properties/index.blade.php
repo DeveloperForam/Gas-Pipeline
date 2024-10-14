@@ -1,4 +1,4 @@
-@extends('layouts.layout')
+{{-- @extends('layouts.layout')
 
 @section('title', 'Property List')
 
@@ -54,4 +54,74 @@
             @endforeach
         </tbody>
     </table>
+@endsection --}}
+
+@extends('layouts.app')
+
+@section('content')
+<div class="container">
+    <h1>Property List</h1>
+
+    <!-- Display success message -->
+    @if(session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
+
+    <!-- Add user button -->
+    <a href="{{ route('properties.create') }}" class="btn btn-primary mb-3">Add Property</a>
+
+    <!-- User list table -->
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Property Name</th>
+                <th>Type</th>
+                <th>Distance</th>
+                <th>Owner Name</th>
+                <th>Address</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach($properties as $property)
+            <tr>
+               <td>{{ $property->name }}</td>
+                    <td>{{ $property->type }}</td>
+                    <td>{{ $property->distance }}</td>
+                    <td>{{ $property->owner_name }}</td>
+                    <td>{{ $property->address }}</td>
+                    <td>
+                        @if ($property->is_active)
+                            <span class="badge bg-success">Active</span>
+                        @else
+                            <span class="badge bg-danger">Inactive</span>
+                        @endif
+                    </td>
+                    <td>
+                    @if($user->status)
+                        <span class="badge badge-success">Active</span>
+                    @else
+                        <span class="badge badge-danger">Inactive</span>
+                    @endif
+                </td>
+                <td>
+                    <a href="{{ route('properties.edit', $user->id) }}" class="btn btn-sm btn-warning">Edit</a>
+
+                    <!-- Toggle Status -->
+                    <form action="{{ route('properties.toggleStatus', $user->id) }}" method="POST" style="display:inline-block;">
+                        @csrf
+                        @method('PATCH')
+                        <button type="submit" class="btn btn-sm {{ $user->status ? 'btn-danger' : 'btn-success' }}">
+                            {{ $user->status ? 'Deactivate' : 'Activate' }}
+                        </button>
+                    </form>
+                </td>
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
+</div>
 @endsection

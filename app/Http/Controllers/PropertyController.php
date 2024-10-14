@@ -18,13 +18,13 @@ class PropertyController extends Controller
 
     public function store(Request $request){
         $validate = $request->validate([
-            'property_name' => 'required|string|max:255',
-            'property_type' => 'required|in:House,Building',
+            'name' => 'required|string|max:255',
+            'type' => 'required|in:House,Building',
             'distance' => 'required|numeric',
-            'property_owner_name' => 'required|string|max:255',
+            'owner_name' => 'required|string|max:255',
             'address' => 'required|string|max:255',
         ]);
-
+        // dd($validate);
         Property::create($validate);
         return redirect()->route('properties.index');
     }

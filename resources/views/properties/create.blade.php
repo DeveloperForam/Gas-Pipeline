@@ -1,11 +1,11 @@
 @extends('layouts.layout')
 
-@section('title', 'Add New Property')
+{{-- @section('title', 'Add New Property') --}}
 
 @section('content')
     <h1>Add New Property</h1>
 
-    <form action="{{ route('properties.store') }}" method="POST">
+    <form action="{{ route('properties.index') }}" method="POST">
         @csrf
 
         <div class="mb-3">
@@ -23,7 +23,7 @@
 
         <div class="mb-3">
             <label for="distance" class="form-label">Distance</label>
-            <input type="number" step="0.01" name="distance" class="form-control" id="distance" required>
+            <input type="number" step="0.00" name="distance" class="form-control" id="distance" required >
         </div>
 
         <div class="mb-3">

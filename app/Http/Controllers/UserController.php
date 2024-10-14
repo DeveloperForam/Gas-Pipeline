@@ -23,7 +23,7 @@ class UserController extends Controller
             'lname' => 'required|string|max:255',
             'email' => 'required|email|unique:users,email',
             'password' => 'required|min:6',
-            'mobileno' => 'required|digits:10',
+            'mobileno' => 'required|regex:/^[0-9]{10}$/',
             'role' => 'required|string|max:255',
         ]);
 
@@ -31,11 +31,11 @@ class UserController extends Controller
             'fname' => $request->fname,
             'lname' => $request->lname,
             'email' => $request->email,
-            'password' => $request->password, // Password is automatically hashed by the User model
+            'password' => $request->password, 
             'mobileno' => $request->mobileno,
             'role' => $request->role,
         ]);
 
-        return redirect()->route('users.create')->with('success','User creates successfully');
+        return redirect()->route('users.index')->with('success','User creates successfully');
     }
 }
