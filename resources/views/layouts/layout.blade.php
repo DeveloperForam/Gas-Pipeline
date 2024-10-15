@@ -161,7 +161,7 @@
                     <a class="nav-link" href="{{ route('properties.index') }}">Properties</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('algo') }}">Shortest Path</a>
+                    <a class="nav-link" href="{{ route('findShortestPath1') }}">Shortest Path</a>
                 </li>
             </ul>
         </div>
@@ -170,10 +170,10 @@
     <div class="container mt-4">
         <div class="row">
             <div class="col-3">
-                <ul class="list-group">
+                {{-- <ul class="list-group">
                     <li class="list-group-item"><a href="{{ route('properties.index') }}">Property List</a></li>
                     <li class="list-group-item"><a href="{{ route('properties.create') }}">Add New Property</a></li>
-                </ul>
+                </ul> --}}
             </div>
             <div class="col-9">
                 @yield('content')

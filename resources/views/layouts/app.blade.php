@@ -241,8 +241,11 @@
                     <a class="nav-link" href="{{ route('properties.index') }}">Properties</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('algo') }}">Shortest Path</a>
+                    <a class="nav-link" href="{{ route('findShortestPath1') }}">Shortest Path</a>
                 </li>
+                {{-- <li class="nav-item">
+                    <a class="nav-link" href="{{ route('home') }}">Report</a>
+                </li> --}}
             </ul>
         </div>
 

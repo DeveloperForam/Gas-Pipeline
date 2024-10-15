@@ -2,10 +2,10 @@
 
 {{-- @section('title', 'Add New Property') --}}
 
-@section('content')
+{{-- @section('content')
     <h1>Add New Property</h1>
 
-    <form action="{{ route('properties.index') }}" method="POST">
+    <form action="{{ route('properties.create') }}" method="POST">
         @csrf
 
         <div class="mb-3">
@@ -38,4 +38,69 @@
 
         <button type="submit" class="btn btn-success">Add Property</button>
     </form>
+@endsection --}}
+
+
+<!-- resources/views/users/create.blade.php -->
+
+{{-- @extends('layouts.app') --}}
+
+@section('content')
+<div class="container">
+    <h1>Add New User</h1>
+
+    <!-- Display validation errors -->
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
+    <!-- User creation form -->
+    <form action="{{ route('properties.store') }}" method="POST">
+        @csrf <!-- CSRF protection -->
+
+        <div class="mb-3">
+            <label for="owner_name" class="form-label">Owner Name</label>
+            <input type="text" name="owner_name" class="form-control" id="owner_name" required><br>
+        </div>
+
+         <div class="mb3">
+            <label for="property_name">Property Name</label>
+            <input type="text" name="property_name" class="form-control" required><br>
+        </div>
+
+         <div class="mb-3">
+            <label for="property_name" class="form-label">Property Name</label>
+            <input type="text" name="property_name" class="form-control" id="property_name" required>
+        </div>
+
+
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" name="email" class="form-control" required value="{{ old('email') }}"><br>
+        </div>
+
+        <div class="form-group">
+            <label for="mobileno">Mobile No</label>
+            <input type="text" name="mobileno" class="form-control" required value="{{ old('mobileno') }}"><br>
+        </div>
+
+        <div class="form-group">
+            <label for="role">Role</label>
+            <input type="text" name="role" class="form-control" value="{{ old('role') }}" required><br>
+        </div>
+
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" name="password" class="form-control" required><br>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Add User</button>
+    </form>
+</div>
 @endsection

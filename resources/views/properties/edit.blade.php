@@ -1,6 +1,6 @@
 @extends('layouts.layout')
 
-@section('title', 'Edit Property')
+{{-- @section('title', 'Edit Property') --}}
 
 @section('content')
     <h1>Edit Property</h1>

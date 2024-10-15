@@ -3,6 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Dompdf\Dompdf;
+use Dompdf\Options;
+// use Illuminate\Mail\Mailable;
+// use Illuminate\Mail\Mailables\Content;
+// use Illuminate\Mail\Mailables\Envelope;
 
 class DijkstraController extends Controller
 {
@@ -117,5 +122,22 @@ class DijkstraController extends Controller
             'distance' => $distances[$end] !== INF ? $distances[$end] : 'No path found',
             'path' => $path
         ];
+    }
+
+    public function downloadPDF(Request $request)
+    {
+        $start = $request->input('start');
+        $shortest_path = $this->findShortestPath($request);
+
+        $data = [
+            'start' => $start,
+            'shortest_path' => $shortest_path
+        ];
+
+        //generate path
+        $pdf = PDF::loadView('dijkstra_report', $data);
+
+        //return the generate PDF the download
+        return $pdf -> download('Shortest-Path.pdf');
     }
 }

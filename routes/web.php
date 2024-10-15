@@ -6,6 +6,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PropertyController;
 use App\Http\Controllers\DijkstraController;
+use App\Http\Controllers\PdfController;
 
 Route::get('/', function () {
     return redirect()->route('login');
@@ -36,7 +37,11 @@ Route::post('/properties', [PropertyController::class, 'store'])->name('properti
 Route::patch('properties/{property}/toggleStatus', [UserController::class, 'toggleStatus'])->name('properties.toggleStatus');
 
 //algorithm
-Route::get('/algo', [DijkstraController::class, 'findShortestPath'])->name('algo')->middleware('a');
 
-Route::get('/shortest-path', [DijkstraController::class, 'findShortestPath'])->name('shortest-path');
+Route::get('/dijkstra', [DijkstraController::class, 'findShortestPath'])->name('findShortestPath');
 
+Route::post('/dijkstra', [DijkstraController::class, 'findShortestPath'])->name('findShortestPath1');
+
+//reports
+
+Route::post('/download-pdf', [DijkstraController::class, 'downloadPDF'])->name('downloadPDF');
