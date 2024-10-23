@@ -45,7 +45,7 @@
                     @endif
                 </td> --}}
                 <td>
-                    <a href="{{ route('users.store', $user->id) }}" class="btn btn-sm btn-warning">Edit</a>
+                    <a href="{{ route('users.edit', $user->id) }}" class="btn btn-sm btn-warning">Edit</a>
 
                     <!-- Toggle Status -->
                     <form action="{{ route('users.toggleStatus', $user->id) }}" method="POST" style="display:inline-block;">

@@ -38,4 +38,24 @@ class UserController extends Controller
 
         return redirect()->route('users.index')->with('success','User creates successfully');
     }
+
+    public function edit($id){
+        $user = admin::find($id); // Find the user by ID
+        if(!$user) {
+            return redirect()->route('users')->with('error', 'User not found.');
+        }
+
+        return view('users.edit', compact('user')); // Pass user data to the edit view
+ 
+        $user->update([
+            'fname' => $request->fname,
+            'lname' => $request->lname,
+            'email' => $request->email,
+            'mobileno' => $request->mobileno,
+            'role' => $request->role,
+        ]);
+
+    return redirect()->route('users')->with('success', 'User updated successfully');
+
+    }
 }
