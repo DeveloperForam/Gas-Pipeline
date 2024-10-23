@@ -64,43 +64,35 @@
     <form action="{{ route('properties.store') }}" method="POST">
         @csrf <!-- CSRF protection -->
 
-        <div class="mb-3">
-            <label for="owner_name" class="form-label">Owner Name</label>
-            <input type="text" name="owner_name" class="form-control" id="owner_name" required><br>
-        </div>
-
-         <div class="mb3">
-            <label for="property_name">Property Name</label>
-            <input type="text" name="property_name" class="form-control" required><br>
-        </div>
-
-         <div class="mb-3">
+      <div class="mb-3">
             <label for="property_name" class="form-label">Property Name</label>
             <input type="text" name="property_name" class="form-control" id="property_name" required>
         </div>
 
-
-        <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" name="email" class="form-control" required value="{{ old('email') }}"><br>
+        <div class="mb-3">
+            <label for="property_type" class="form-label">Property Type</label>
+            <select name="property_type" id="property_type" class="form-select">
+                <option value="House">House</option>
+                <option value="Building">Building</option>
+            </select>
         </div>
 
-        <div class="form-group">
-            <label for="mobileno">Mobile No</label>
-            <input type="text" name="mobileno" class="form-control" required value="{{ old('mobileno') }}"><br>
+        <div class="mb-3">
+            <label for="distance" class="form-label">Distance</label>
+            <input type="number" step="0.00" name="distance" class="form-control" id="distance" required >
         </div>
 
-        <div class="form-group">
-            <label for="role">Role</label>
-            <input type="text" name="role" class="form-control" value="{{ old('role') }}" required><br>
+        <div class="mb-3">
+            <label for="property_owner_name" class="form-label">Property Owner Name</label>
+            <input type="text" name="property_owner_name" class="form-control" id="property_owner_name" required>
         </div>
 
-        <div class="form-group">
-            <label for="password">Password</label>
-            <input type="password" name="password" class="form-control" required><br>
+        <div class="mb-3">
+            <label for="address" class="form-label">Address</label>
+            <input type="text" name="address" class="form-control" id="address" required>
         </div>
 
-        <button type="submit" class="btn btn-primary">Add User</button>
+        <button type="submit" class="btn btn-success">Add Property</button>
     </form>
 </div>
 @endsection

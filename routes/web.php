@@ -32,6 +32,8 @@ Route::get('/properties', [PropertyController::class, 'index'])->name('propertie
 
 Route::get('/properties/create', [PropertyController::class, 'create'])->name('properties.create');
 
+Route::get('/properties/edit', [PropertyController::class, 'edit'])->name('properties.edit');
+
 Route::post('/properties', [PropertyController::class, 'store'])->name('properties.store');
 
 Route::patch('properties/{property}/toggleStatus', [UserController::class, 'toggleStatus'])->name('properties.toggleStatus');

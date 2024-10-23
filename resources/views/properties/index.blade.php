@@ -101,22 +101,22 @@
                             <span class="badge bg-danger">Inactive</span>
                         @endif
                     </td>
-                    <td>
-                    @if($user->status)
+                    {{-- <td>
+                    @if($property->status)
                         <span class="badge badge-success">Active</span>
                     @else
                         <span class="badge badge-danger">Inactive</span>
                     @endif
-                </td>
+                </td> --}}
                 <td>
-                    <a href="{{ route('properties.edit', $user->id) }}" class="btn btn-sm btn-warning">Edit</a>
+                    <a href="{{ route('properties.edit', $property->id) }}" class="btn btn-sm btn-warning">Edit</a>
 
                     <!-- Toggle Status -->
-                    <form action="{{ route('properties.toggleStatus', $user->id) }}" method="POST" style="display:inline-block;">
+                    <form action="{{ route('properties.toggleStatus', $property->id) }}" method="POST" style="display:inline-block;">
                         @csrf
                         @method('PATCH')
-                        <button type="submit" class="btn btn-sm {{ $user->status ? 'btn-danger' : 'btn-success' }}">
-                            {{ $user->status ? 'Deactivate' : 'Activate' }}
+                        <button type="submit" class="btn btn-sm {{ $property->status ? 'btn-danger' : 'btn-success' }}">
+                            {{ $property->status ? 'Deactivate' : 'Activate' }}
                         </button>
                     </form>
                 </td>

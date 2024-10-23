@@ -16,23 +16,18 @@
             margin-top: 20px;
         }
     </style>
-</head>
+</head><?php 
+
+?>
 <body>
     <div class="report-container">
         <h1>Shortest Path Report</h1>
-
         <p><strong>From Destination:</strong> {{ $start }}</p>
         <p><strong>To Destination:</strong> Gas Station</p>
 
         <div class="path-details">
-            <p><strong>Total Distance:</strong> {{ $shortest_path['distance'] }}</p>
-            @if(!empty($shortest_path['path']))
-                <p><strong>Path:</strong> {{ implode(' -> ', $shortest_path['path']) }}</p>
-            @else
-                <p>No path found</p>
-            @endif
-
-            dd($shortest_path);
+            <p><strong>Total Distance:</strong> {{ $shortest_path }}</p>
+            <p><strong>Path:</strong> {{ $shortest_path }} </p>
         </div>
     </div>
 </body>

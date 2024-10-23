@@ -1,12 +1,12 @@
-{{-- @extends('layouts.app') --}}
-
-<!DOCTYPE html>
+@extends('layouts.app')
+@section('content')
+{{-- <!DOCTYPE html>
 <html>
 <head>
     <title>Shortest Path using Dijkstra's Algorithm</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css">
 </head>
-<body>
+<body> --}}
     <div class="container mt-5">
         <h1>Find Shortest Path from Destination to Gas Station</h1>
         
@@ -16,7 +16,7 @@
             <div class="mb-3">
                 <label for="start" class="form-label">Select From Destination:</label>
                 <select name="start" id="start" class="form-control">
-                    <option value="From Destination">Please Select the From Destination</option>
+                    <option value="Select">Please Select From Destination</option>
                     <option value="School">School</option>
                     <option value="Hospital">Hospital</option>
                     <option value="Mall">Mall</option>
@@ -51,16 +51,15 @@
                 @else
                     <p>No path found</p>
                 @endif
-
-                <!-- Download Report Button -->
-                <form action="{{ route('downloadPDF') }}" method="POST">
-                    @csrf
-                    <input type="hidden" name="start" value="{{ $start }}">
-                    <input type="hidden" name="shortest_path" value="{{ json_encode($shortest_path) }}">
-                    <button type="submit" class="btn btn-success">Download Report</button>
-                </form>
             </div>
+        
+             {{-- Download PDF Button --}}
+            <form action="{{route('downloadPDF')}}" method="POST">
+            @csrf
+            <input type="hidden" name="start" value="{{$start}}">
+            <button type="submit" class="btn btn-success mt-3">Download Report</button>
+            </form>
+
         @endif
     </div>
-</body>
-</html>
+@endsection
