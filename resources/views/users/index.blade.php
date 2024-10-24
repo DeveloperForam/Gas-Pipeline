@@ -55,6 +55,14 @@
                             {{ $user->status ? 'Deactivate' : 'Activate' }}
                         </button>
                     </form>
+
+                    {{-- <form action="{{ route('users.toggleStatus', $user->id) }}" method="POST">
+                        @csrf
+                        @method('PUT')
+                        <button type="submit">
+                            {{ $user->status ? 'Deactivate' : 'Activate' }}
+                        </button>
+                    </form> --}}
                 </td>
             </tr>
             @endforeach

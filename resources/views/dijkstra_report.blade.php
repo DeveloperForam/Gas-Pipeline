@@ -16,8 +16,8 @@
             margin-top: 20px;
         }
     </style>
-</head><?php 
-
+</head>
+<?php 
 ?>
 <body>
     <div class="report-container">

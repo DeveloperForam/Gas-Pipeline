@@ -18,11 +18,11 @@ class PropertyController extends Controller
 
     public function store(Request $request){
         $validate = $request->validate([
-            'name' => 'required|string|max:255',
-            'type' => 'required|in:House,Building',
-            'distance' => 'required|numeric',
-            'owner_name' => 'required|string|max:255',
-            'address' => 'required|string|max:255',
+            'name' => 'string|max:255',
+            'type' => 'in:House,Building',
+            'distance' => 'numeric',
+            'owner_name' => 'string|max:255',
+            'address' => 'string|max:255',
         ]);
         // dd($validate);
         Property::create($validate);
@@ -35,11 +35,11 @@ class PropertyController extends Controller
 
     public function update(Request $request, Property $property){
         $validate = $request->validate([
-            'property_name' => 'required|string|max:255',
-            'property_type' => 'required|in:House,Building',
-            'distance' => 'required|numeric',
-            'property_owner_name' => 'required|string|max:255',
-            'address' => 'required|string|max:255',
+            'property_name' => 'string|max:255',
+            'property_type' => 'in:House,Building',
+            'distance' => 'numeric',
+            'property_owner_name' => 'string|max:255',
+            'address' => 'string|max:255',
         ]);
 
         $property->update($validate);

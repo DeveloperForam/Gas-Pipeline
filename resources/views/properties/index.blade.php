@@ -82,8 +82,8 @@
                 <th>Distance</th>
                 <th>Owner Name</th>
                 <th>Address</th>
-                <th>Status</th>
-                <th>Actions</th>
+                {{-- <th>Status</th>
+                <th>Actions</th> --}}
             </tr>
         </thead>
         <tbody>
@@ -94,13 +94,13 @@
                     <td>{{ $property->distance }}</td>
                     <td>{{ $property->owner_name }}</td>
                     <td>{{ $property->address }}</td>
-                    <td>
+                    {{-- <td>
                         @if ($property->is_active)
                             <span class="badge bg-success">Active</span>
                         @else
                             <span class="badge bg-danger">Inactive</span>
                         @endif
-                    </td>
+                    </td> --}}
                     {{-- <td>
                     @if($property->status)
                         <span class="badge badge-success">Active</span>
@@ -108,18 +108,18 @@
                         <span class="badge badge-danger">Inactive</span>
                     @endif
                 </td> --}}
-                <td>
-                    <a href="{{ route('properties.edit', $property->id) }}" class="btn btn-sm btn-warning">Edit</a>
+                {{-- <td>
+                    <a href="{{ route('properties.edit', $property->id) }}" class="btn btn-sm btn-warning">Edit</a> --}}
 
                     <!-- Toggle Status -->
-                    <form action="{{ route('properties.toggleStatus', $property->id) }}" method="POST" style="display:inline-block;">
+                    {{-- <form action="{{ route('properties.toggleStatus', $property->id) }}" method="POST" style="display:inline-block;">
                         @csrf
                         @method('PATCH')
                         <button type="submit" class="btn btn-sm {{ $property->status ? 'btn-danger' : 'btn-success' }}">
                             {{ $property->status ? 'Deactivate' : 'Activate' }}
                         </button>
-                    </form>
-                </td>
+                    </form> --}}
+                {{-- </td> --}}
             </tr>
             @endforeach
         </tbody>

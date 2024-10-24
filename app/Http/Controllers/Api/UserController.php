@@ -80,12 +80,12 @@ class UserController extends Controller
                 'success' => true,
                 'message' => 'User updated successfully',
                 'user' => $user
-            ], 200); // 200 OK
+            ], 200); 
         } else {
             return response()->json([
                 'success' => false,
                 'message' => 'User not found'
-            ], 404); // 404 Not Found
+            ], 404); 
         }
     }
 

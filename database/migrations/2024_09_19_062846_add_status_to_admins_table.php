@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('admins', function (Blueprint $table) {
-            //
+            $table->boolean('status')->default(1); // Add status column with default value
         });
     }
 
@@ -22,7 +22,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('admins', function (Blueprint $table) {
-            //
+            $table->dropColumn('status'); // Remove the column if you rollback
         });
     }
 };
